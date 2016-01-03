@@ -2,10 +2,13 @@
 
 import sys, os, os.path, getopt
 from os import walk
+
 def main(argv,app_name):
     ##Check the input
 
-    outputfile = "";
+    outputfile = ""
+    #TODO make it possible to search other directory for example static dir
+    #walk_dir = "./"
     try:
         opts, args = getopt.getopt(argv,"ho:",["long","help","ofile="])
     except getopt.GetoptError:
@@ -14,6 +17,7 @@ def main(argv,app_name):
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             disp_usage(app_name+'2')
+            #TODO add a way to add domain before path
             print 'Options:\n -h, -o <outputfile>; Long options: --help, --ofile <outputfile>,\n --long "This will make it load in the images..... some other way....."'
         elif opt in ("-o","--ofile"):
             #ADD FILENAME CHECK HERE!!
@@ -25,7 +29,18 @@ def main(argv,app_name):
         print "You have to choose a outputfile! \n"
         disp_usage(app_name)
         sys.exit()
+
+
+    #Begin creation
+
+
     make_list();
+
+    #Download files if missing
+    if not os.path.isfile("file_viewer.js"):
+        print "Missing file: file_viewer.js"
+    if not os.path.isfile("image_viewer.js"):
+        print "Missing file: image_viewer.js"
 
 def disp_usage(app_name):
     print 'usage: '+app_name+' [options] [long options]\n type "'+app_name+' -h" for help'

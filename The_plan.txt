@@ -1,0 +1,25 @@
+TODO:
+*Decide if there should be one index file or one in each directorylevel
+*Decide where to put the javascript
+*Decide if there should be some ability to costuimize
+
+
+GOAL:
+*You should be able to navigate through the subdirectories and display images in
+ one viewer
+
+
+Later GOALS:
+*There should be minitures of the images, though these will not be loaded
+ all at once due to the amount that could be forced to load.
+     *Therfore it should be possible to load some images at a time,
+      and when scrolling down it should load more.
+
+*Introduce passwordprotection? Maybe, maybe not.... it would by in php in
+ that case....
+
+
+Summary:
+This project should only be something simple, nothing to fancy just a
+way to index and view images (maybe files in the future) without using
+the default html viewer =)
