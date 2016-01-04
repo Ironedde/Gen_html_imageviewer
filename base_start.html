@@ -1,0 +1,53 @@
+<html>
+<head>
+  <STYLE type="text/css">
+      #viewer{
+        width:100%;
+        height: 400px;
+      }
+      #list{
+        width:100%;
+        height:400px;
+        max-height: 400px;
+      }
+  </STYLE>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+    var links = document.getElementsByClassName('to_img_viewer');
+    current_index = -1;
+    max_index = links.length-1;
+    function changeImage(url){
+        var img = document.getElementById("image");
+        img.setAttribute("src",url);
+    }
+    function next(){
+      if(current_index < max_index){
+        current_index++;
+        changeImage(links[current_index].getAttribute("href"))
+      }
+    }
+    function prev(){
+      if(current_index > 0){
+        current_index--;
+        changeImage(links[current_index].getAttribute("href"))
+      }
+    }
+      $(function(){
+
+        $('.to_img_viewer').click(function(event){
+          changeImage($(this).attr('href'));
+          event.preventDefault();
+          // or alert($(this).hash();
+        });
+      });
+  </script>
+</head>
+<body>
+<div id="container">
+  <div id="viewer" name="viewer"><img id="image" src="https://i.ytimg.com/vi/MG8KADiRbOU/maxresdefault.jpg" style="height:400px;"></img></div>
+  <div id="nav"><a href="#" onclick="prev()">PREV</a><a href="#" onclick="next()">NEXT</a></div>
+  <div id="list">
+    <table style="width:100%">
+  <tr>
+    <td>Name</td>
+  </tr>
